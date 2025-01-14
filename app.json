@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "job_app",
+    "slug": "job_app"
+  }
+}
