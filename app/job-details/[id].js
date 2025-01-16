@@ -20,6 +20,7 @@ const JobDetails = () => {
     const [refreshing, setrefreshing] = useState(false)
     const [activeTab, setactiveTab] = useState(tabs[0])
 
+<<<<<<< HEAD
     const onRefresh = useCallback(() => {
         setRefreshing(true);
         refetch()
@@ -53,6 +54,40 @@ const JobDetails = () => {
         return null;
     }
   };
+=======
+    const onRefresh = () => {
+
+    }
+
+    const displayTabContent = () => {
+        switch (activeTab) {
+            case 'Qualifications':
+                return <Specifics
+                    title={activeTab}
+                    points={data[0].job_highlights?.activeTab ?? 'N/A'}
+                />
+                break;
+
+            case 'About':
+                return <JobAbout
+                    info={data[0].job_description ?? "No data provided"}
+                />
+                
+                break;
+
+            case 'Responsibilities':
+                return <Specifics
+                    title={activeTab}
+                    points={data[0].job_highlights?.activeTab ?? 'N/A'}
+                />
+                
+                break;
+        
+            default:
+                break;
+        }
+    }
+>>>>>>> bb8ef6de62d89793b0db62d67ae286246bc62095
 
   return (
     <SafeAreaView style={{
@@ -70,12 +105,21 @@ const JobDetails = () => {
                         handlePress={() => router.back()}
                     />
                 ),
+<<<<<<< HEAD
                 // headerRight: () => (
                 //     <ScreenHeaderBtn 
                 //         iconUrl={icons.share}
                 //         dimension="60%"
                 //     />
                 // ),
+=======
+                headerRight: () => (
+                    <ScreenHeaderBtn 
+                        iconUrl={icons.share}
+                        dimension="60%"
+                    />
+                ),
+>>>>>>> bb8ef6de62d89793b0db62d67ae286246bc62095
                 headerTitle: ''
             }}
         />
@@ -112,7 +156,11 @@ const JobDetails = () => {
                 }
             </ScrollView>
 
+<<<<<<< HEAD
             <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results'}/>
+=======
+            <JobFooter url={data[0]?.job_google_link ?? 'https://cateers.google.com/jobs/results'}/>
+>>>>>>> bb8ef6de62d89793b0db62d67ae286246bc62095
         </>
     </SafeAreaView>
   )
