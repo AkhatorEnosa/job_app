@@ -11,7 +11,7 @@ const useFetch = (endpoint, query) => {
         method: 'GET',
         url: `https://jsearch.p.rapidapi.com/${endpoint}`,
         headers: {
-            'x-rapidapi-key': '17897940bbmshdc1d68d32879342p11b9a9jsn5fc78a166ffb',
+            'x-rapidapi-key': '03119db087msh7a05b9315072742p1a2f85jsn1517786eff44',
             'x-rapidapi-host': 'jsearch.p.rapidapi.com'
         },
         params: { ...query },
@@ -27,6 +27,7 @@ const useFetch = (endpoint, query) => {
         } catch (error) {
             seterror(error)
             alert("There is an error")
+            console.log(error)
         } finally {
             setisLoading(false)
         }
