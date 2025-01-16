@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'expo-router'
 import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native'
 
@@ -9,11 +9,17 @@ import useFetch from '../../../hook/useFetch'
 
 const Popularjobs = () => {
   const router = useRouter();
+  const [selectedJob, setselectedJob] = useState()
   
   const { data, isLoading, error } = useFetch('search', {
     query: 'React developer remote',
     page: '1',
   })
+
+  const handleCardPress = (item) => {
+    router.push(`/job-details/${item.job_id}`);
+    setselectedJob(item.job_id);
+  };
 
   return (
     <View style={styles.container}>
@@ -34,6 +40,8 @@ const Popularjobs = () => {
               renderItem={({ item }) => (
                 <PopularjobCard
                   item={item}
+                  selectedJob={selectedJob}
+                  handleCardPress={handleCardPress}
                 />
               )}
               keyExtractor={item => item?.job_id}
